@@ -14,6 +14,8 @@ const buttonVariants = cva(
           'bg-brand-neutral-700 text-brand-neutral-100 rounded-full font-semibold hover:scale-[0.95] cursor-pointer dark:bg-brand-neutral-100 dark:text-brand-neutral-700',
 
         link: 'font-semibold cursor-pointer hover:text-brand-neutral-400 group dark:text-brand-neutral-100 ',
+
+        switch: 'bg-transparent',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
@@ -49,11 +51,12 @@ function Button({
       {...props}
     >
       {children}
-      {variant === 'link' ? (
+      {variant === 'link' && (
         <span>
           <FaChevronRight className="group-hover:translate-x-1 transition-transform duration-500 ease-out" />
         </span>
-      ) : (
+      )}
+      {variant === 'default' && (
         <span>
           <FaRegArrowAltCircleRight className="group-hover:translate-x-1 transition-transform duration-500 ease-out" />
         </span>
